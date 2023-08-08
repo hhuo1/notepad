@@ -1,6 +1,8 @@
+#Import modules
 from tkinter.filedialog import *
 import tkinter as tk
 
+#Function to save file
 def saveFile():
 	new_file = asksaveasfile(mode = 'w', filetype = [('text files', '.txt')])
 	if new_file is None:
@@ -9,12 +11,14 @@ def saveFile():
 	new_file.write(text)
 	new_file.close()
 
+#Function to open file
 def openFile():
 	file = askopenfile(mode = 'r', filetype = [('text files', '*.txt')])
 	if file is not None:
 		content = file.read()
 	entry.insert(INSERT, content)
 
+#Function to clear file
 def clearFile():
 	entry.delete(1.0, END)
 
@@ -25,6 +29,7 @@ canvas.config(bg = "white")
 top = Frame(canvas)
 top.pack(padx = 10, pady = 5, anchor = 'nw')
 
+#Buttons
 b1 = Button(canvas, text="Open", bg = "white",  command = openFile)
 b1.pack(in_ = top, side=LEFT)
 
