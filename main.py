@@ -2,23 +2,23 @@
 from tkinter.filedialog import *
 import tkinter as tk
 
-#Function to save file
 def saveFile():
+  #Create a new text file if it not exists
 	new_file = asksaveasfile(mode = 'w', filetype = [('text files', '.txt')])
+  
+  #If the program cannot find the text file, return to create and save it
 	if new_file is None:
 		return
 	text = str(entry.get(1.0, END))
 	new_file.write(text)
 	new_file.close()
 
-#Function to open file
 def openFile():
 	file = askopenfile(mode = 'r', filetype = [('text files', '*.txt')])
 	if file is not None:
 		content = file.read()
 	entry.insert(INSERT, content)
 
-#Function to clear file
 def clearFile():
 	entry.delete(1.0, END)
 
@@ -45,4 +45,5 @@ b4.pack(in_ = top, side=LEFT)
 entry = Text(canvas,wrap = WORD, bg = "#F9DDA4", font = ("poppins", 15))
 entry.pack(padx = 10, pady = 5, expand = TRUE, fill = BOTH)
 
+#Main loop
 canvas.mainloop()
