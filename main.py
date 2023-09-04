@@ -3,10 +3,10 @@ from tkinter.filedialog import *
 import tkinter as tk
 
 def saveFile():
-  #Create a new text file if it not exists
+     #Create a new text file if it not exists
 	new_file = asksaveasfile(mode = 'w', filetype = [('text files', '.txt')])
   
-  #If the program cannot find the text file, return to create and save it
+     #If the program cannot find the text file, return to create and save it
 	if new_file is None:
 		return
 	text = str(entry.get(1.0, END))
